@@ -19,6 +19,8 @@ install:
   - sudo apt-get install libsfml-dev
   # Codecov
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+  # OCLint
+  - ./install_oclint.sh
 
 script: 
   - qmake
@@ -27,7 +29,16 @@ script:
   # Codecov
   - ./get_code_cov.sh
   - codecov
+  # OCLint
+  - ./do_oclint.sh
 
 after_success:
   # Codecov
   - bash <(curl -s https://codecov.io/bash)
+
+
+
+
+
+
+
